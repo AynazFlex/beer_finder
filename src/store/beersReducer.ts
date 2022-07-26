@@ -8,8 +8,8 @@ const actions = {
   setBeers: (items: beers[]) =>
     ({ type: "SET_BEERS", payload: { items, fetching: false } } as const),
   addBeers: (items: beers[]) => ({ type: "ADD_BEERS", items } as const),
-  loadMoreBeers: () =>
-    ({ type: "LOAD_MORE_BEER", payload: { isLoadingMore: true } } as const),
+  loadMoreBeers: (isLoadingMore: boolean) =>
+    ({ type: "LOAD_MORE_BEER", payload: { isLoadingMore } } as const),
   fetchBeers: (fetching: boolean) =>
     ({ type: "FETCH_BEERS", payload: { fetching } } as const),
   openBeer: (openBeer: beer[]) =>
@@ -34,11 +34,12 @@ export const setBeersThunk =
 
 export const loadMorebeersThunk = (): ThunkActionType => async (dispatch) => {
   try {
-    dispatch(actions.loadMoreBeers());
+    dispatch(actions.loadMoreBeers(true));
     const data = await beersApi.loadMoreBeers();
     dispatch(actions.addBeers(data));
   } catch (err) {
     alert(err);
+    dispatch(actions.loadMoreBeers(false));
   }
 };
 
