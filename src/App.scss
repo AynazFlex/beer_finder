@@ -1,0 +1,25 @@
+@import "./scssDefault/default";
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: auto;
+  min-height: 100vh;
+  flex-grow: 1;
+  .app-header {
+    padding: 40px 0 20px 0;
+    background-color: $black;
+    .app-title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: $yellow;
+      margin-bottom: 40px;
+    }
+  }
+  footer {
+    height: 40px;
+    background-color: $black;
+  }
+}

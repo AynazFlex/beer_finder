@@ -1,0 +1,24 @@
+@import "../../scssDefault/default";
+
+.search-body {
+    display: flex;
+    width: calc(100% - 40px);
+    margin: auto;
+    input {
+        display: inline-block;
+        width: 100%;
+        padding: 8px 16px;
+        outline: none;
+        font-size: 16px;
+        border: none;
+    }
+
+    button {
+        border: none;
+        outline: none;
+        background-color: $yellow;
+        color: $black;
+        padding: 0 12px;
+        cursor: pointer;
+    }
+}

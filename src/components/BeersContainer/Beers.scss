@@ -1,0 +1,79 @@
+@import "../../scssDefault/default";
+
+@mixin button {
+    background-color: $black;
+    color: $yellow;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px auto 0 auto;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: max-content;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+@mixin hover {
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+.beers-wrapper {
+    flex-grow: 1;
+    background-color: $yellow;
+    padding: 20px 0;
+
+    .beers-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: 100%;
+
+        .beer-container {
+            width: 200px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            cursor: pointer;
+            border-radius: 5px;
+            background: $gradient;
+            text-decoration-line: none;
+
+            @include hover;
+
+            img {
+                display: block;
+                margin: 4px auto;
+                max-height: 202px;
+            }
+
+            .beer-info {
+                margin: 4px;
+                color: $black;
+
+                .beer-title {
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin-bottom: 8px;
+                }
+
+                .beer-description {
+                    font-size: 14px;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+
+    .beers-more {
+        @include button;
+        @include hover;
+    }
+
+    .beers-more-dis {
+        @include button;
+    }
+}

@@ -1,0 +1,68 @@
+@import "../../scssDefault/default";
+
+.openbeer-wrapper {
+    flex-grow: 1;
+    background-color: $yellow;
+    padding: 20px;
+}
+
+.openbeer-image-container {
+    padding: 20px;
+    background: $gradient;
+    margin-bottom: 20px;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        height: 400px;
+    }
+}
+
+.openbeer-info-container {
+
+    button {
+        outline: none;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        background-color: $black;
+        padding: 4px 8px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .openbeer-name {
+        margin: 10px 0;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .openbeer-abv {
+        display: inline-block;
+        font-size: 20px;
+        padding: 10px;
+        background-color: $black;
+        color: $yellow;
+        border-radius: 50%;
+    }
+
+    .openbeer-tagline {
+        font-size: 18px;
+        margin: 5px 0;
+        font-weight: bold;
+    }
+
+    .openbeer-food_pairing {
+        font-size: 16px;
+        margin: 5px 0;
+        font-weight: bold;
+        text-decoration-line: underline;
+    }
+
+    .openbeer-description {
+        font-size: 18px;
+        padding: 10px;
+        background-color: $black;
+        color: $yellow;
+    }
+}
