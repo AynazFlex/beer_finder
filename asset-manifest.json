@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/beer_finder/static/css/main.00cd3f64.css",
-    "main.js": "/beer_finder/static/js/main.f6555867.js",
+    "main.js": "/beer_finder/static/js/main.23ee03ef.js",
     "index.html": "/beer_finder/index.html",
     "main.00cd3f64.css.map": "/beer_finder/static/css/main.00cd3f64.css.map",
-    "main.f6555867.js.map": "/beer_finder/static/js/main.f6555867.js.map"
+    "main.23ee03ef.js.map": "/beer_finder/static/js/main.23ee03ef.js.map"
   },
   "entrypoints": [
     "static/css/main.00cd3f64.css",
-    "static/js/main.f6555867.js"
+    "static/js/main.23ee03ef.js"
   ]
 }
