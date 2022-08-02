@@ -12,12 +12,12 @@ export type beers = {
 };
 
 export type beer = {
-  name: string
-  tagline: string
-  description: string
-  image_url: string
-  abv: number
-  food_pairing: string[]
+  name: string;
+  tagline: string;
+  description: string;
+  image_url: string;
+  abv: number;
+  food_pairing: string[];
 };
 
 const beersApi = {
@@ -25,7 +25,9 @@ const beersApi = {
   page: 1,
 
   _createURL(name: string, page: number): string {
-    return `beers?beer_name=${name}&per_page=30&page=${page}`
+    return name
+      ? `beers?beer_name=${name}&per_page=30&page=${page}`
+      : `beers?per_page=30&page=${page}`;
   },
 
   async getBeers(search_text: string) {

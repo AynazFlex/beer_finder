@@ -4,7 +4,7 @@ import { InferActions, RootState } from "./store";
 
 type Actions = InferActions<typeof actions>;
 
-const actions = {
+export const actions = {
   setBeers: (items: beers[]) =>
     ({ type: "SET_BEERS", payload: { items, fetching: false } } as const),
   addBeers: (items: beers[]) => ({ type: "ADD_BEERS", items } as const),
@@ -14,6 +14,8 @@ const actions = {
     ({ type: "FETCH_BEERS", payload: { fetching } } as const),
   openBeer: (openBeer: beer[]) =>
     ({ type: "OPEN_BEER", payload: { openBeer, fetching: false } } as const),
+  setError: (error: string) => 
+    ({ type: "SET_ERROR", payload: { error }} as const)
 };
 
 type ThunkActionType = ThunkAction<void, RootState, unknown, Actions>;
@@ -27,7 +29,7 @@ export const setBeersThunk =
       if(data.length === 0) throw new Error("there is no such beer");
       dispatch(actions.setBeers(data));
     } catch (err) {
-      alert(err);
+      dispatch(actions.setError(String(err)));
       dispatch(actions.fetchBeers(false));
     }
   };
@@ -38,7 +40,7 @@ export const loadMorebeersThunk = (): ThunkActionType => async (dispatch) => {
     const data = await beersApi.loadMoreBeers();
     dispatch(actions.addBeers(data));
   } catch (err) {
-    alert(err);
+    dispatch(actions.setError(String(err)));
     dispatch(actions.loadMoreBeers(false));
   }
 };
@@ -51,7 +53,7 @@ export const setBeerThunk =
     const data = await beersApi.getBeer(id);
     dispatch(actions.openBeer(data));
     } catch (err) {
-      alert(err);
+      dispatch(actions.setError(String(err)));
       dispatch(actions.fetchBeers(false));
     }
   };
@@ -61,13 +63,15 @@ const initialState: initialState = {
   fetching: false,
   openBeer: [],
   isLoadingMore: false,
+  error: '',
 };
 
 type initialState = {
-  items: beers[];
-  fetching: boolean;
-  openBeer: beer[];
-  isLoadingMore: boolean;
+  items: beers[]
+  fetching: boolean
+  openBeer: beer[]
+  isLoadingMore: boolean
+  error: string
 };
 
 const beersReducer = (state = initialState, action: Actions): initialState => {
@@ -75,6 +79,7 @@ const beersReducer = (state = initialState, action: Actions): initialState => {
     case "SET_BEERS":
     case "FETCH_BEERS":
     case "LOAD_MORE_BEER":
+    case "SET_ERROR":
     case "OPEN_BEER": {
       return {
         ...state,
