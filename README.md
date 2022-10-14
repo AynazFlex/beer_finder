@@ -3,12 +3,12 @@
 ## Приложения для поиска пиво
 
 ### Стек:
--react
--redux
--react-redux
--redux-thunk
--react-router
--scss
+- react
+- redux
+- react-redux
+- redux-thunk
+- react-router
+- scss
 
 ### Скриншоты
 ![7](https://user-images.githubusercontent.com/87998138/195411253-69a04ee8-642e-46ee-b753-c5e57ef09415.PNG)
